@@ -128,7 +128,7 @@ def go(config: DictConfig):
                 "main",
                 env_manager="conda",
                 parameters={
-                    "mlflow_model": "random_forest_export:latest",
+                    "mlflow_model": "random_forest_export:prod",
                     "test_dataset": "test_data.csv:latest"
                 },
             )

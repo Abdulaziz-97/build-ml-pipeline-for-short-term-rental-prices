@@ -44,7 +44,11 @@ def test_proper_boundaries(data: pd.DataFrame):
     """
     Test proper longitude and latitude boundaries for properties in and around NYC
     """
-    idx = data['longitude'].between(-74.25, -73.50) & data['latitude'].between(40.5, 41.2)
+    # Updated to match the improved NYC filtering in basic_cleaning
+    idx = (
+        (data['latitude'] >= 40.4774) & (data['latitude'] <= 40.9176) & 
+        (data['longitude'] >= -74.2591) & (data['longitude'] <= -73.7004)
+    )
 
     assert np.sum(~idx) == 0
 
